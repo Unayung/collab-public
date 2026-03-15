@@ -23,8 +23,11 @@ curl -fsSL https://raw.githubusercontent.com/collaborator-ai/collab-public/main/
 ## Quickstart
 
 1. Open Collaborator
+
 2. Add a workspace — click the workspace dropdown in the navigator and choose "Add workspace", or press Cmd+Shift+O, then select a local folder
+
 3. Double-click the canvas to create a terminal, and start an agent
+
 4. Drag files from the navigator onto the canvas to open them as tiles alongside your running agents
 
 ***
@@ -239,3 +242,5 @@ The application supports light and dark modes.
 | Border     | rgb(206, 206, 206) | rgba(255, 255, 255, 0.2) |
 
 Tiles have rounded corners and a subtle drop shadow.
+
+⠀
