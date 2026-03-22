@@ -16,7 +16,8 @@
 		"package:unsigned": "./scripts/package.sh --no-sign",
 		"release": "bun run package && bun scripts/upload-to-github.cjs",
 		"test": "bun test",
-		"test:updater": "bun test src/main/updater/github-release-fetcher.test.ts && bun test src/main/updater/downloader.test.ts && bun test src/main/updater/update-manager.test.ts"
+		"test:updater": "bun test src/main/updater/github-release-fetcher.test.ts && bun test src/main/updater/downloader.test.ts && bun test src/main/updater/update-manager.test.ts",
+		"postinstall": "electron-rebuild -f -w node-pty"
 	},
 	"build": {
 		"appId": "com.collaborator.desktop",
@@ -140,6 +141,7 @@
 	},
 	"devDependencies": {
 		"@electron/notarize": "2.5.0",
+		"@electron/rebuild": "^4.0.3",
 		"@octokit/rest": "22.0.1",
 		"@tailwindcss/vite": "4.2.0",
 		"@types/d3": "7.4.3",
