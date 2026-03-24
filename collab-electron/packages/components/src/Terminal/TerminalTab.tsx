@@ -90,7 +90,11 @@ function TerminalTab({ sessionId, visible, restored, scrollbackData }: TerminalT
 				return false;
 			}
 			if (e.type === "keydown" && e.metaKey) {
-				if (e.key === "t" || (e.key >= "1" && e.key <= "9")) {
+				if (e.key === "t") {
+					return false;
+				}
+				if (e.key >= "1" && e.key <= "9") {
+					window.api.sendShortcut(`switch-tab-${e.key}`);
 					return false;
 				}
 			}
