@@ -325,6 +325,7 @@ export interface CollabApi {
 
   // Canvas pinch forwarding
   forwardPinch: (deltaY: number) => void;
+  sendShortcut: (action: string) => void;
 }
 
 declare global {
