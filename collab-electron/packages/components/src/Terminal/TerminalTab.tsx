@@ -43,6 +43,12 @@ function TerminalTab({ sessionId, visible, restored, scrollbackData }: TerminalT
 		term.open(containerRef.current);
 		fitRef.current = fit;
 
+		// DEBUG: raw keydown to verify events reach webview
+		const debugKeydown = (e: KeyboardEvent) => {
+			if (e.metaKey) console.log("[TerminalTab] raw keydown meta+" + e.key);
+		};
+		window.addEventListener("keydown", debugKeydown, true);
+
 		const unicode11 = new Unicode11Addon();
 		term.loadAddon(unicode11);
 		term.unicode.activeVersion = "11";
@@ -174,6 +180,7 @@ function TerminalTab({ sessionId, visible, restored, scrollbackData }: TerminalT
 		mediaQuery.addEventListener("change", onThemeChange);
 
 		return () => {
+			window.removeEventListener("keydown", debugKeydown, true);
 			if (flushTimer !== undefined) {
 				clearTimeout(flushTimer);
 				flushData();
