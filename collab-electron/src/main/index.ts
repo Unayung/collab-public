@@ -609,6 +609,10 @@ function setSettingsOpen(open: boolean): void {
 
 ipcMain.on("settings:open", () => setSettingsOpen(true));
 
+ipcMain.on("shell:shortcut-from-webview", (_event, action: string) => {
+  sendShortcut(action);
+});
+
 const LOG_FN_BY_LEVEL: Record<number, (...args: unknown[]) => void> = {
   0: console.debug,
   1: console.log,
