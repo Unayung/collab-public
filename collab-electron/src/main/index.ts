@@ -236,8 +236,7 @@ function attachShortcutListener(
 
     if (includeTabShortcuts) {
       const tabAction = resolveTabShortcut(input);
-      console.log("[main] before-input-event key=" + input.key + " code=" + input.code + " meta=" + input.meta + " ctrl=" + input.control + " url=" + target.getURL().slice(0, 60) + " tabAction=" + tabAction + " cmdOrCtrl=" + cmdOrCtrl(input));
-      if (tabAction && cmdOrCtrl(input)) {
+if (tabAction && cmdOrCtrl(input)) {
         event.preventDefault();
         if (!input.isAutoRepeat) sendShortcut(tabAction);
       }
