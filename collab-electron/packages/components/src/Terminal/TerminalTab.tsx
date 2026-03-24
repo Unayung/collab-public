@@ -94,6 +94,7 @@ function TerminalTab({ sessionId, visible, restored, scrollbackData }: TerminalT
 					return false;
 				}
 				if (e.key >= "1" && e.key <= "9") {
+					console.log("[TerminalTab] Cmd+" + e.key + " pressed, sending switch-tab-" + e.key);
 					window.api.sendShortcut(`switch-tab-${e.key}`);
 					return false;
 				}
