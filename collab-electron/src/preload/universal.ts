@@ -465,6 +465,10 @@ contextBridge.exposeInMainWorld("api", {
     };
   },
 
+  // Send shortcut action to main process (used by terminal tile for Cmd+1-9)
+  sendShortcut: (action: string) =>
+    ipcRenderer.send("shell:shortcut-from-webview", action),
+
   // Canvas pinch forwarding
   forwardPinch: (deltaY: number) =>
     ipcRenderer.send("canvas:forward-pinch", deltaY),
