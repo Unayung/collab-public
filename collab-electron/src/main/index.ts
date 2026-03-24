@@ -298,7 +298,7 @@ function registerToggleShortcuts(win: BrowserWindow): void {
 
   win.webContents.on("did-attach-webview", (_event, wc) => {
     wc.once("did-finish-load", () => {
-      attachShortcutListener(wc, !isTerminalWebview(wc));
+      attachShortcutListener(wc, true); // fix: allow Cmd+1-9 tab switching inside terminal webview
       if (isBrowserTileWebview(wc)) {
         attachBrowserShortcuts(wc, win);
       }
