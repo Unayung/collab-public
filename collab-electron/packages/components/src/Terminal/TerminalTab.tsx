@@ -46,6 +46,7 @@ function TerminalTab({ sessionId, visible, restored, scrollbackData }: TerminalT
 		// DEBUG: raw keydown to verify events reach webview
 		const debugKeydown = (e: KeyboardEvent) => {
 			if (e.metaKey) console.log("[TerminalTab] raw keydown meta+" + e.key);
+			if (e.ctrlKey) console.log("[TerminalTab] raw keydown ctrl+" + e.key);
 		};
 		window.addEventListener("keydown", debugKeydown, true);
 
